@@ -120,7 +120,7 @@ const Home = () => {
                 type="number"
                 value={startYear}
                 onChange={(e) => setStartYear(e.target.value)}
-                className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none"
+                className="text-black w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none"
                 min="1900"
                 max="2024"
                 required
@@ -136,7 +136,7 @@ const Home = () => {
                 type="number"
                 value={endYear}
                 onChange={(e) => setEndYear(e.target.value)}
-                className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none"
+                className="text-black w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none"
                 min="1900"
                 max="2024"
                 required
@@ -155,7 +155,7 @@ const Home = () => {
               <select
                 value={dataType}
                 onChange={(e) => setDataType(e.target.value)}
-                className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none appearance-none bg-white"
+                className="text-black w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none appearance-none bg-white"
                 required
               >
                 <option value="Temperature">Temperature</option>
@@ -172,7 +172,7 @@ const Home = () => {
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none"
+                className="text-black w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none"
                 placeholder="Enter city name"
                 required
               />
