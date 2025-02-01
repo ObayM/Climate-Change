@@ -1,0 +1,34 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+BoxData[{RowBox[{RowBox[{"weatherAPI"," ","="," ",RowBox[
+{"APIFunction","[","\n","  ",RowBox[{RowBox[{"{",RowBox[{RowBox[{"\"city\""," ","\[Rule]"," ","\"String\""}],","," ",RowBox[
+{"\"factor\""," ","\[Rule]"," ","\"String\""}],","," ",RowBox[{"\"startDate\""," ","\[Rule]"," ","\"String\""}],","," ",RowBox[
+{"\"endDate\""," ","\[Rule]"," ","\"String\""}]}],"}"}],",","\n","  ",RowBox[{RowBox[
+{"Module","[",RowBox[{RowBox[{"{",RowBox[{"data",","," ","startDateObj",","," ","endDateObj",","," ","jsonData"}],"}"}],",","\n","    ",RowBox[
+{RowBox[{"startDateObj"," ","="," ",RowBox[{"Check","[",RowBox[{RowBox[{"FromDateString","[","#startDate","]"}],","," ","$Failed"}],"]"}]}],";","\n","    ",RowBox[
+{"endDateObj"," ","="," ",RowBox[{"Check","[",RowBox[{RowBox[{"FromDateString","[","#endDate","]"}],","," ","$Failed"}],"]"}]}],";","\n","    ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"startDateObj"," ","==="," ","$Failed"}]," ","||"," ",RowBox[
+{"endDateObj"," ","==="," ","$Failed"}]}],",","\n","      ",RowBox[{RowBox[{"Return","[",RowBox[
+{"<|",RowBox[{RowBox[{"\"success\""," ","\[Rule]"," ","False"}],","," ",RowBox[{"\"message\""," ","\[Rule]"," ","\"Invalid date format. Please use YYYY-MM-DD.\""}]}],"|>"}],"]"}],";"}]}]," ","]"}],";","\n","    ",RowBox[
+{"data"," ","="," ",RowBox[{"WeatherData","[",RowBox[{"#city",","," ","#factor",","," ",RowBox[
+{"{",RowBox[{"startDateObj",","," ","endDateObj",","," ","\"Year\""}],"}"}]}],"]"}]}],";","\n","    ",RowBox[
+{"If","[",RowBox[{RowBox[{"MissingQ","[","data","]"}],",","\n","      ",RowBox[{RowBox[
+{"Return","[",RowBox[{"<|",RowBox[{RowBox[{"\"success\""," ","\[Rule]"," ","False"}],","," ",RowBox[
+{"\"message\""," ","\[Rule]"," ","\"No data available for this query.\""}]}],"|>"}],"]"}],";"}]}],"]"}],";","\n","    ",RowBox[
+{"jsonData"," ","="," ",RowBox[{"Table","[",RowBox[{RowBox[{"<|",RowBox[{RowBox[{"\"date\""," ","\[Rule]"," ",RowBox[
+{"DateString","[",RowBox[{RowBox[{"data","[",RowBox[{"[",RowBox[{"i",","," ","1"}],"]"}],"]"}],","," ",RowBox[
+{"{",RowBox[{"\"Year\"",","," ","\"-\"",","," ","\"Month\"",","," ","\"-\"",","," ","\"Day\""}],"}"}]}],"]"}]}],",","  ",RowBox[
+{"\"value\"","     ",RowBox[{"QuantityMagnitude","[",RowBox[{"data","[",RowBox[{"[",RowBox[
+{"i",","," ","2"}],"]"}],"]"}],"]"}]}]}],"|>"}],",","  ",RowBox[{"{",RowBox[{"i",","," ",RowBox[
+{"Length","[","data","]"}]}],"}"}]}]," ","]"}]}],";","\n","    ",RowBox[{"<|",RowBox[
+{RowBox[{"\"success\""," ","\[Rule]"," ","True"}],","," ",RowBox[{"\"data\""," ","\[Rule]"," ","jsonData"}]}],"|>"}]}]}],"  ","]"}]," ","&"}]}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"deployedAPI"," ","="," ",RowBox[{"CloudDeploy","[",RowBox[{"weatherAPI",","," ",RowBox[
+{"Permissions"," ","\[Rule]"," ","\"Public\""}]}],"]"}]}],";"}],"\n",RowBox[{"deployedAPIURL"," ","="," ",RowBox[
+{"CloudObjectURL","[","deployedAPI","]"}]}]}],"Input",ExpressionUUID -> "f34ba810-3a95-4e6c-8b46-03ed10930318"],Cell[
+BoxData[
+RowBox[{"CloudObjectURL","[",InterpretationBox[RowBox[{"CloudObject","[",TemplateBox[
+{"\"https://www.wolframcloud.com/obj/cb05835c-2605-4987-a926-3620ce96892b\"","https://www.wolframcloud.com/obj/cb05835c-2605-4987-a926-3620ce96892b"},
+"HyperlinkURL"],"]"}],CloudObject["https://www.wolframcloud.com/obj/cb05835c-2605-4987-a926-3620ce96892b"],
+SelectWithContents -> True],"]"}],StandardForm],"Output",CellLabel -> "Out[119]= ",
+ExpressionUUID -> "d70c7672-a23c-4aee-b836-596e12843682"]},Open],ExpressionUUID -> "44e01e5e-3415-4fd8-a7c9-073ed5579e46"]},
+StyleDefinitions -> "Default.nb",FrontEndVersion -> "14.2 for Wolfram Cloud 1.70.1 (December 30, 2024)"]
